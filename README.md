@@ -52,7 +52,7 @@ Releases:                     https://github.com/itsadijmbt/rm-buffer-pkg/releas
 🧰 Installation (Debian/Ubuntu)
 ---------------------------------------------------------------------------
 
-Example (replace version as needed):
+Example 
     wget -O /tmp/rm-buffer.deb "https://github.com/itsadijmbt/rm-buffer-pkg/releases/download/v1.0.2/rm-buffer_1.0.2_amd64.deb"
     wget -O /tmp/rm-buffer.deb.sha256 "https://github.com/itsadijmbt/rm-buffer-pkg/releases/download/v1.0.2/rm-buffer_1.0.2_amd64.deb.sha256"
     sha256sum -c /tmp/rm-buffer.deb.sha256
