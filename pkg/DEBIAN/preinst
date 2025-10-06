@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+set -e
+# Prevent clobbering an existing /usr/local/bin/rm that isn't our wrapper
+if [ -e /usr/local/bin/rm ] && ! grep -q 'rm-buffer wrapper' /usr/local/bin/rm 2>/dev/null; then
+  echo "Refusing to overwrite existing /usr/local/bin/rm. Remove or rename it first." >&2
+  exit 1
+fi
+exit 0

@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+set -euo pipefail
+ACTION="${1:---replace}"
+BACKUP_SUFFIX=".rm-buffer-migrate.bak.$(date +%s)"
+files=( /root/.bashrc /root/.profile /root/.bash_profile /root/.zshrc )
+for d in /home/*; do
+  [ -d "$d" ] && {
+    files+=( "$d/.bashrc" "$d/.profile" "$d/.bash_profile" "$d/.zshrc" )
+  }
+done
+
+for f in "${files[@]}"; do
+  [ -f "$f" ] || continue
+  if grep -qE '^[[:space:]]*alias[[:space:]]+rm' "$f"; then
+    echo "Processing $f"
+    cp -a "$f" "$f$BACKUP_SUFFIX"
+    if [ "$ACTION" = "--remove" ]; then
+      sed -i.bak '/^[[:space:]]*alias[[:space:]]\+rm/d' "$f"
+    else
+      sed -i.bak '0, /^[[:space:]]*alias[[:space:]]\+rm/ { /^[[:space:]]*alias[[:space:]]\+rm/ s|.*|alias rm="\/usr\/local\/bin\/rm" | }' "$f"
+    fi
+    echo "Backed up old file to $f$BACKUP_SUFFIX"
+  fi
+done
+
+echo "Done. Users must re-open shells or source their rc file."

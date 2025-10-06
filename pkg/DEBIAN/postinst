@@ -1,0 +1,14 @@
+#!/bin/bash
+set -e
+[ -f /usr/local/bin/rm-buffer ] && chmod 0755 /usr/local/bin/rm-buffer
+cat <<MSG
+
+rm-buffer installed.
+Binary:  /usr/local/bin/rm-buffer
+Interactive function: /etc/profile.d/rm-buffer.sh (sourced for interactive shells)
+To enable for current session: source /etc/profile.d/rm-buffer.sh
+Admin opt-in (global wrapper): sudo /usr/local/sbin/rm-buffer-enable
+
+Backups: per-user under ~/backupForRm (or the invoking user when sudo is used).
+MSG
+exit 0

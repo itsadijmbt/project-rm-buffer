@@ -1,0 +1,8 @@
+Package: rm-buffer
+Version: 1.0.2
+Section: utils
+Priority: optional
+Architecture: amd64
+Maintainer: Your Name <you@example.com>
+Depends: bash, coreutils, tar
+Description: Intercepts rm when explicitly requested and stores per-user backups in ~/backupForRm.

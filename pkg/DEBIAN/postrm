@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+set -e
+# nothing to do on postrm for this package (backups are preserved)
+exit 0

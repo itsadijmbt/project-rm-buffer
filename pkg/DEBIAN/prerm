@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+set -e
+# On package removal, remove the wrapper only if it's our wrapper
+if [ "$1" = remove ] || [ "$1" = purge ]; then
+  if [ -f /usr/local/bin/rm ] && grep -q 'rm-buffer wrapper' /usr/local/bin/rm 2>/dev/null; then
+    rm -f /usr/local/bin/rm
+  fi
+fi
+exit 0

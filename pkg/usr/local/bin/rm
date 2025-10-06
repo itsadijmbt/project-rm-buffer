@@ -1,0 +1,20 @@
+#!/bin/bash
+# rm-buffer wrapper (non-interactive)
+# marker: "rm-buffer wrapper"
+
+BINARY="/usr/local/bin/rm-buffer"
+
+if [ $# -eq 0 ]; then
+  exec /bin/rm
+fi
+
+case "$1" in
+  -buffer|-b|-extract|-E|-list|-L)
+    MODE="$1"
+    shift
+    exec "$BINARY" "$(pwd -P)" "$MODE" "$@"
+    ;;
+  *)
+    exec /bin/rm "$@"
+    ;;
+esac
