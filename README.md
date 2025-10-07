@@ -52,15 +52,16 @@ Releases:                     https://github.com/itsadijmbt/rm-buffer-pkg/releas
 🧰 Installation (Debian/Ubuntu)
 ---------------------------------------------------------------------------
 
-Example 
-    wget -O /tmp/rm-buffer.deb "https://github.com/itsadijmbt/rm-buffer-pkg/releases/download/v1.0.2/rm-buffer_1.0.2_amd64.deb"
-    wget -O /tmp/rm-buffer.deb.sha256 "https://github.com/itsadijmbt/rm-buffer-pkg/releases/download/v1.0.2/rm-buffer_1.0.2_amd64.deb.sha256"
-    sha256sum -c /tmp/rm-buffer.deb.sha256
-    sudo dpkg -i /tmp/rm-buffer.deb
 
-To enable the helper:
-    source /etc/profile.d/rm-buffer.sh
-or open a new shell (profile.d scripts load automatically).
+1: curl -I "https://github.com/itsadijmbt/project-rm-buffer/releases/download/v1.0.2/rm-buffer_1.0.2_amd64.deb"
+
+2: wget -O /tmp/rm-buffer.deb "https://github.com/itsadijmbt/rm-buffer-pkg/releases/download/v1.0.2/rm-buffer_1.0.2_amd64.deb"
+
+3: wget -O /tmp/rm-buffer.deb.sha256 "https://github.com/itsadijmbt/rm-buffer-pkg/releases/download/v1.0.2/rm-buffer_1.0.2_amd64.deb.sha256"
+
+4: sudo dpkg -i /tmp/rm-buffer.de
+
+NOTE: if it fails open a new shell (profile.d scripts load automatically).
 
 ---------------------------------------------------------------------------
 🚀 Usage overview
